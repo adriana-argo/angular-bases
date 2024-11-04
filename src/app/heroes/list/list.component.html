@@ -1,0 +1,27 @@
+<p>list works!</p>
+
+<h1>Lista de Héroes de Marvel</h1>
+
+<div 
+    *ngIf="deletedHero; else nothingWasDeleted">
+<h3 class="font-bold">Héroe borrado: <small class="text-red-200">{{deletedHero}}</small></h3>
+</div>
+
+
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+<button
+    *ngIf="heroes.length > 0"
+    (click)="removeLastHero()" 
+    class="bg-red-600 rounded-lg border-2 p-2"
+  >Borrar último héroe</button>
+    <ul class="mt-2 list-disc">
+        <li 
+        *ngFor="let hero of heroes"
+        class="ml-10"
+        >
+            <h3>{{ hero }}</h3>
+        </li>
+    </ul>
